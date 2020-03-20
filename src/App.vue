@@ -1,9 +1,17 @@
 <template>
   <div id="app">
+    <Navigation v-if="currentUser"></Navigation>
     <router-view />
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+import Navigation from "./views/Navigation.vue";
+export default {
+  components: { Navigation },
+  computed: {
+    ...mapState(["currentUser"])
+  }
+};
 </script>
